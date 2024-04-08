@@ -1,10 +1,13 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
-import App from "./App";
+import { render, screen, fireEvent } from '@testing-library/react';
+import App from './App';
 
-test("renders App component", () => {
+test('renders App component', () => {
   render(<App />);
-
-  const appElement = screen.getByText("Hello Canada");
-  expect(appElement).toBeInTheDocument();
+  expect(screen.getByText('Hello Canada')).toBeInTheDocument();
 });
+
+test('initial dataType state is provinces', () => {
+  render(<App />);
+  expect(screen.getByText('Provinces')).toBeInTheDocument();
+});
+
